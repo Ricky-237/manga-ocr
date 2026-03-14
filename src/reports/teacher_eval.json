@@ -1,0 +1,76 @@
+{
+  "overall": {
+    "gold_lines": 5941,
+    "prediction_lines": 5941,
+    "matched_lines": 5941,
+    "unmatched_gold_lines": 0,
+    "unmatched_prediction_lines": 0,
+    "detection_recall": 1.0,
+    "detection_precision": 1.0,
+    "matched_cer": 0.0,
+    "end_to_end_cer": 0.0,
+    "matched_wer": 0.0,
+    "end_to_end_wer": 0.0,
+    "iou_threshold": 0.5
+  },
+  "slices": {
+    "domain": {
+      "manga": {
+        "gold_lines": 5941,
+        "matched_lines": 5941,
+        "unmatched_gold_lines": 0,
+        "detection_recall": 1.0,
+        "matched_cer": 0.0,
+        "end_to_end_cer": 0.0,
+        "matched_wer": 0.0,
+        "end_to_end_wer": 0.0
+      }
+    },
+    "direction": {
+      "horizontal": {
+        "gold_lines": 5941,
+        "matched_lines": 5941,
+        "unmatched_gold_lines": 0,
+        "detection_recall": 1.0,
+        "matched_cer": 0.0,
+        "end_to_end_cer": 0.0,
+        "matched_wer": 0.0,
+        "end_to_end_wer": 0.0
+      }
+    },
+    "text_type": {
+      "dialogue": {
+        "gold_lines": 5941,
+        "matched_lines": 5941,
+        "unmatched_gold_lines": 0,
+        "detection_recall": 1.0,
+        "matched_cer": 0.0,
+        "end_to_end_cer": 0.0,
+        "matched_wer": 0.0,
+        "end_to_end_wer": 0.0
+      }
+    },
+    "split": {
+      "train": {
+        "gold_lines": 5029,
+        "matched_lines": 5029,
+        "unmatched_gold_lines": 0,
+        "detection_recall": 1.0,
+        "matched_cer": 0.0,
+        "end_to_end_cer": 0.0,
+        "matched_wer": 0.0,
+        "end_to_end_wer": 0.0
+      },
+      "val": {
+        "gold_lines": 912,
+        "matched_lines": 912,
+        "unmatched_gold_lines": 0,
+        "detection_recall": 1.0,
+        "matched_cer": 0.0,
+        "end_to_end_cer": 0.0,
+        "matched_wer": 0.0,
+        "end_to_end_wer": 0.0
+      }
+    }
+  }
+}

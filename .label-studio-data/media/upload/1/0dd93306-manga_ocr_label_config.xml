@@ -1,0 +1,20 @@
+<View>
+  <Image name="image" value="$image"/>
+  <PolygonLabels name="text_region" toName="image" strokeWidth="2" pointSize="small">
+    <Label value="dialogue" background="#0F766E"/>
+    <Label value="caption" background="#2563EB"/>
+    <Label value="sfx" background="#DC2626"/>
+    <Label value="unknown" background="#6B7280"/>
+  </PolygonLabels>
+  <TextArea name="transcript" toName="image" perRegion="true" rows="2" editable="true"/>
+  <Choices name="language" toName="image" perRegion="true" choice="single-radio">
+    <Choice value="jp"/>
+    <Choice value="kr"/>
+    <Choice value="latin"/>
+    <Choice value="mixed"/>
+  </Choices>
+  <Choices name="direction" toName="image" perRegion="true" choice="single-radio">
+    <Choice value="vertical"/>
+    <Choice value="horizontal"/>
+  </Choices>
+</View>

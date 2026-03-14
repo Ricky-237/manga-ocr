@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "manga-ocr-pipeline"
+version = "0.1.0"
+description = "Training and data pipeline scaffold for manga and webtoon OCR."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+authors = [{ name = "Codex" }]
+dependencies = []
+
+[project.optional-dependencies]
+train = ["PyYAML>=6.0", "torch>=2.6.0"]
+vision = ["Pillow>=10.4.0", "numpy>=2.0.0"]
+dev = ["pytest>=8.3.0"]
+
+[project.scripts]
+manga-ocr = "manga_ocr.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

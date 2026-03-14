@@ -1,0 +1,20 @@
+{
+  "detector_model_path": "D:/engine-fault-detection/manga109_yolo/yolo26n.onnx",
+  "detector_input_size": 1280,
+  "detector_confidence_threshold": 0.15,
+  "detector_iou_threshold": 0.3,
+  "crop_padding": 10,
+  "aspect_ratio_vertical_threshold": 1.35,
+  "rotate_vertical_crops": false,
+  "default_text_type": "dialogue",
+  "recognizer": {
+    "languages": "jpn+kor+eng",
+    "psm": 6,
+    "oem": 1,
+    "min_word_confidence": 20.0,
+    "min_line_confidence": 0.15,
+    "min_text_height": 1.0,
+    "preserve_spaces": false,
+    "timeout_s": 60.0
+  }
+}

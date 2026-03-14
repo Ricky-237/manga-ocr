@@ -1,0 +1,15 @@
+{
+  "languages": "jpn+kor+eng",
+  "psm": 11,
+  "oem": 1,
+  "default_direction": "horizontal",
+  "default_text_type": "dialogue",
+  "default_lang": "mixed",
+  "min_word_confidence": 35.0,
+  "min_line_confidence": 0.45,
+  "min_text_height": 8.0,
+  "min_transcript_length": 1,
+  "preserve_spaces": true,
+  "timeout_s": 120.0,
+  "extra_args": []
+}

@@ -1,0 +1,99 @@
+data:
+  catalog_db: data/catalog.sqlite
+  raw_storage_root: data/raw
+  page_assets_manifest: manifests/page_assets.jsonl
+  dataset_manifest: manifests/dataset_manifest.jsonl
+  split_salt: manga-ocr-v1
+  split_ratios:
+    train: 0.80
+    val: 0.10
+    test: 0.10
+
+teachers:
+  detector:
+    family: yolo26n_onnx
+    checkpoint: D:/engine-fault-detection/manga109_yolo/yolo26n.onnx
+    input_size: 1280
+    confidence_threshold: 0.15
+    iou_threshold: 0.30
+  recognizer_jp:
+    family: parseq
+    variant: base
+    checkpoint: checkpoints/teachers/parseq_jp.pt
+  recognizer_kr:
+    family: parseq
+    variant: base
+    checkpoint: checkpoints/teachers/parseq_kr_latin.pt
+
+synthetic:
+  enabled: true
+  line_crops: 4000000
+  pages: 400000
+  sfx_ratio: 0.05
+  render_domains: [manga, webtoon]
+  directions: [vertical, horizontal]
+  augmentations:
+    - screentone
+    - moire
+    - jpeg
+    - blur
+    - low_contrast
+    - mixed_scripts
+
+pseudo_label:
+  min_detection_confidence: 0.85
+  min_recognition_confidence: 0.82
+  min_script_confidence: 0.80
+  min_teacher_agreement: 0.75
+  min_text_height: 12
+  review_budget:
+    pages: 2500
+    lines: 35000
+
+annotation:
+  tool: label_studio
+  label_config: configs/label_studio/manga_ocr_label_config.xml
+  double_review_split: test
+
+detector:
+  family: mobilenetv3_db
+  backbone: mobilenetv3_large_0_75
+  long_side: 1280
+  webtoon_tile:
+    size: 1280
+    overlap: 0.10
+
+router:
+  family: mobilenetv3_small
+  width_mult: 0.35
+
+recognizers:
+  jp:
+    family: mobilenetv3_ctc
+    backbone: mobilenetv3_small
+    vocab_size: 6000
+  kr:
+    family: mobilenetv3_ctc
+    backbone: mobilenetv3_small
+    vocab_size: 3000
+
+distillation:
+  enabled: true
+  detector_loss_weight: 0.50
+  recognizer_loss_weight: 0.50
+
+quantization:
+  pruning_ratio: 0.20
+  qat: true
+  target_format: onnx_int8
+  runtime: onnx_runtime_mobile
+  accelerator: nnapi
+
+benchmarks:
+  detection_recall_min: 0.97
+  cer_max: 0.025
+  int8_fp32_cer_delta_max: 0.004
+  latency_median_ms_max: 800
+  latency_p95_ms_max: 1200
+  ram_peak_mb_max: 220
+  package_size_mb_max: 25
